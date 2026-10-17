@@ -1699,6 +1699,7 @@ export default function QuotationModern() {
               </p>
               <button 
                 onClick={handlePhoneContact}
+                data-google-ads-conversion="phone"
                 className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors flex items-center justify-center mx-auto"
               >
                 <Phone className="w-4 h-4 mr-1" />

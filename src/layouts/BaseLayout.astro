@@ -63,6 +63,55 @@ const schemaItems = structuredData ? (Array.isArray(structuredData) ? structured
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17594757486"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      window.gtag = window.gtag || gtag;
+      window.gtag('js', new Date());
+      window.gtag('config', 'AW-17594757486');
+
+      window.trackGoogleAdsConversion = function (kind) {
+        var labels = {
+          form: 'AW-17600904800/ymeQCMGMg6gcEOD84chB',
+          phone: 'AW-17600904800/0eQNCMSMg6gcEOD84chB',
+          whatsapp: 'AW-17600904800/gwvICMeMg6gcEOD84chB',
+        };
+        var sendTo = labels[kind];
+        if (!sendTo || typeof window.gtag !== 'function') return;
+        window.gtag('event', 'conversion', {
+          send_to: sendTo,
+          value: 1.0,
+          currency: 'USD',
+        });
+      };
+
+      if (!window.__googleAdsTrackingInitialized) {
+        window.__googleAdsTrackingInitialized = true;
+        document.addEventListener('click', function (event) {
+          var target = event.target;
+          if (!(target instanceof Element)) return;
+
+          var actionable = target.closest('a[href], [data-google-ads-conversion]');
+          if (!actionable) return;
+
+          var explicitKind = actionable.getAttribute('data-google-ads-conversion');
+          var href = actionable instanceof HTMLAnchorElement ? actionable.href : '';
+          var kind = explicitKind;
+
+          if (!kind && /^tel:/i.test(actionable.getAttribute('href') || '')) kind = 'phone';
+          if (!kind && /(?:^|\.)wa\.me$/i.test((function () {
+            try { return new URL(href).hostname; } catch (_) { return ''; }
+          })())) kind = 'whatsapp';
+
+          if (kind === 'phone' || kind === 'whatsapp') {
+            window.trackGoogleAdsConversion(kind);
+          }
+        }, true);
+      }
+    </script>
     {
       schemaItems.map((item) => (
         <script type="application/ld+json" set:html={JSON.stringify(item)} />

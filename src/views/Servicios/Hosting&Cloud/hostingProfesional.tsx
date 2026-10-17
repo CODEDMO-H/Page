@@ -115,6 +115,7 @@ export default function HostingProfesional() {
               </ul>
               <button 
                 onClick={() => handleWhatsAppContact(plan.name)}
+                data-google-ads-conversion="whatsapp"
                 className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2 mb-2"
               >
                 <MessageCircle className="w-4 h-4" />

@@ -501,6 +501,7 @@ export default function Contact() {
       // Debug: mostrar la respuesta completa
 
       if (response.ok && (result.success === true || result.status === 'success')) {
+        window.trackGoogleAdsConversion?.('form');
         setSubmitStatus('success');
         setStatusMessage('¡Mensaje enviado exitosamente! Te contactaremos pronto.');
         

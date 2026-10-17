@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useSEO, useSectionSEO } from './useSEO'
 
 // Hook simplificado para manejar SEO en componentes con pestañas/tabs
@@ -8,8 +7,6 @@ export const useTabSEO = (
   parentPage?: 'home' | 'services' | 'about' | 'contact' | 'portfolio' | 'hosting' | 'desarrollo' | 'integracion',
   priority: 'high' | 'medium' | 'low' = 'medium'
 ) => {
-  const [previousTab, setPreviousTab] = useState<string | null>(null)
-
   // Construir el identificador de sección completo
   const fullSectionId = `${baseSection}-${currentTab}`
   
@@ -23,22 +20,6 @@ export const useTabSEO = (
     section: fullSectionId,
     pageType: parentPage
   })
-
-  // Tracking de cambios de pestaña
-  useEffect(() => {
-    if (currentTab !== previousTab) {
-      setPreviousTab(currentTab)
-      
-      // Analytics tracking opcional
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'tab_change', {
-          section: baseSection,
-          tab: currentTab,
-          page: parentPage || 'unknown'
-        })
-      }
-    }
-  }, [currentTab, previousTab, baseSection, parentPage])
 
   return {
     sectionSEO,
@@ -145,13 +126,6 @@ export const useServiceTabSEO = (currentService: string) => {
   }
 
   return useMultiContextSEO('servicios', currentService, serviceContexts)
-}
-
-// Declarar tipos para Google Analytics
-declare global {
-  interface Window {
-    gtag?: (command: string, action: string, params: Record<string, string | number>) => void
-  }
 }
 
 export default {

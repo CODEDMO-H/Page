@@ -324,6 +324,7 @@ export default function Microsoft_365() {
           <div className="grid md:grid-cols-3 gap-4 mb-6">
             <button 
               onClick={() => handleWhatsAppContact('Business Basic')}
+              data-google-ads-conversion="whatsapp"
               className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2"
             >
               <MessageCircle className="w-4 h-4" />
@@ -331,6 +332,7 @@ export default function Microsoft_365() {
             </button>
             <button 
               onClick={() => handleWhatsAppContact('Business Standard')}
+              data-google-ads-conversion="whatsapp"
               className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2"
             >
               <MessageCircle className="w-4 h-4" />
@@ -338,6 +340,7 @@ export default function Microsoft_365() {
             </button>
             <button 
               onClick={() => handleWhatsAppContact('Business Premium')}
+              data-google-ads-conversion="whatsapp"
               className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2"
             >
               <MessageCircle className="w-4 h-4" />
